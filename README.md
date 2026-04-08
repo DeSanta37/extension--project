@@ -40,9 +40,9 @@
 | Роль | Основная задача | Персональный чек-лист |
 |:--------|:-----|:--------| 
 | Тимлид / AI Integration Architect | Архитектура, GigaChat API, сборка, управление проектом | [Ссылка на чек-лист](docs/team/Тимлид.md) |
-| Frontend Developer (Extension Core) | Content Script, работа с DOM, выделение текста, замена на странице | [Ссылка на чек-лист](docs/team/Frontend--Developer.md) |
-| UI/UX Designer + CSS Developer | Интерфейс Popup, стили, анимации, иконки, изоляция стилей | [Ссылка на чек-лист](docs/team/UI/UX--Designer.md) |
-| Prompt Engineer + QA Specialist | Разработка промптов, тестирование качества, документация, демо | [Ссылка на чек-лист](docs/team/Prompt--Engineer.md) |
+| Frontend Developer (Extension Core) | Content Script, работа с DOM, выделение текста, замена на странице | [Ссылка на чек-лист](docs/team/Frontend-Developer.md) |
+| UI/UX Designer + CSS Developer | Интерфейс Popup, стили, анимации, иконки, изоляция стилей | [Ссылка на чек-лист](docs/team/UI/UX-Designer.md) |
+| Prompt Engineer + QA Specialist | Разработка промптов, тестирование качества, документация, демо | [Ссылка на чек-лист](docs/team/Prompt-Engineer.md) |
 
 ---
 
