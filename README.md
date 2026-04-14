@@ -51,5 +51,6 @@
 | **Качество кода** | Prettier, ESLint | Форматирование и линтинг |
 | **Совместная работа** | Git, GitHub | Контроль версий |
 
-Подробнее по [ссылки](/docs/project/technology-stack.md)
+Подробнее по [ссылке](/docs/project/technology-stack.md)
+
 ---
