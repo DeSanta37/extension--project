@@ -74,3 +74,26 @@
 Подробнее по [ссылке](/docs/project/technology-stack.md)
 
 ---
+
+<br>
+
+## Работа с Git
+
+### 1. Клон и настройка (1 раз)
+git clone https://github.com/DeSanta37/extension--project.git
+cd medlens-extension
+npm install
+
+### 2. Начало задачи
+git checkout main
+git pull origin main
+git checkout -b feature/(Название ветки)
+
+### 3. Работа
+git add .
+git commit -m "feat: (Описание исправлений)"
+
+### 4. Отправка
+git push -u origin feature/(Название ветки)
+
+
