@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "lib": ["ES2022", "DOM", "WebWorker"],
+    "types": ["vite/client", "webextension-polyfill"]
+  },
+  "include": ["src", "server", "vite.config.ts"]
+}

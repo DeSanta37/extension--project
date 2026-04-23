@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "MedLens",
+  "version": "0.1.0",
+  "description": "AI-адаптация медицинских текстов",
+  "permissions": ["storage", "contextMenus", "scripting"],
+  "host_permissions": ["http://localhost:3000/*", "https://gigachat.devices.sberbank.ru/*"],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.ts"]
+    }
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "MedLens"
+  }
+}

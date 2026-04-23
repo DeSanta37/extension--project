@@ -1,0 +1,35 @@
+{
+  "name": "medlens-extension",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "tsx server/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint": "^10.2.1",
+    "prettier": "^3.8.3",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.0",
+    "@types/webextension-polyfill": "^0.12.5",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.14",
+    "idb": "^8.0.3",
+    "openai": "^6.34.0",
+    "webext-bridge": "^6.0.1",
+    "webextension-polyfill": "^0.12.0",
+    "zod": "^4.3.6"
+  }
+}
