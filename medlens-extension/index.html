@@ -1,11 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MedLens Popup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
 </head>
 <body>
-    
+
+    <div class="popup-container">
+        <!-- Навигация -->
+        <div class="nav-tabs">
+            <div class="nav-item active" onclick="showScreen(1)">01 <span class="tab-label">Текст</span></div>
+            <div class="nav-item" onclick="showScreen(2)">02 <span class="tab-label">Уровень</span></div>
+            <div class="nav-item" onclick="showScreen(3)">03 <span class="tab-label">Результат</span></div>
+        </div>
+
+        <!-- Экран 01: Главная -->
+        <div id="screen-1" class="screen active">
+            <div class="logo-section">
+                <img src="MedLens.svg" alt="MedLens Logo" class="logo-img">
+            </div>
+
+            <div class="content">
+                <h2>Готов упрощать текст</h2>
+                <p class="description">
+                    Выделите мышкой абзац или фрагмент на странице, либо обработайте всю статью целиком.
+                </p>
+            </div>
+
+            <button class="btn" onclick="openAdaptModal()">Адаптировать всю страницу</button>
+        </div>
+
+        <!-- Экран 02: Выбор уровня -->
+        <div id="screen-2" class="screen">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px;">
+                <h2 style="margin: 0;">Выберите глубину адаптации:</h2>
+                <div class="char-counter">
+                    <div class="counter-icon">T</div>
+                    <div class="counter-text">
+                        <div class="counter-label">Найдено:</div>
+                        <div class="counter-value" id="char-count">340 символов</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="level" value="1" checked>
+                    <div class="custom-radio"></div>
+                    <div class="radio-label">
+                        <h3>Уровень 1: Лёгкий</h3>
+                        <p>Максимальная ясность. Сложные термины объяснены, предложения укорочены. Идеально для 1-2 курса. <span class="highlight-link" onclick="openModal(1)">Подробнее</span></p>
+                    </div>
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="level" value="2">
+                    <div class="custom-radio"></div>
+                    <div class="radio-label">
+                        <h3>Уровень 2: Стандарт</h3>
+                        <p>Точность + доступность. Термины сохранены с краткими пояснениями, логика усилена. Для 3-4 курса. <span class="highlight-link" onclick="openModal(2)">Подробнее</span></p>
+                    </div>
+                </label>
+
+                <label class="radio-option">
+                    <input type="radio" name="level" value="3">
+                    <div class="custom-radio"></div>
+                    <div class="radio-label">
+                        <h3>Уровень 3: Глубокий</h3>
+                        <p>Без потери деталей. Профессиональная лексика, улучшена читаемость и структура. Для 5-6 курса и ординаторов. <span class="highlight-link" onclick="openModal(3)">Подробнее</span></p>
+                    </div>
+                </label>
+            </div>
+
+            <button class="btn" onclick="startLoading()" style="margin-top: auto;">Упростить текст</button>
+        </div>
+
+        <!-- Экран загрузки -->
+        <div id="screen-loading" class="screen loading-screen">
+            <div class="loading-text">Идет адаптация текста...</div>
+            <div class="loading-sub">Обычно это занимает 3-5 секунд</div>
+        </div>
+
+        <!-- Экран результата -->
+        <div id="screen-3" class="screen">
+            <div class="success-icon">✓</div>
+            <div class="result-title">Текст успешно адаптирован</div>
+
+            <div class="result-stats">
+                <h3>Информация:</h3>
+                <div class="stat-item"><span>Выбранный уровень:</span> <span id="selected-level">Лёгкий</span></div>
+                <div class="stat-item"><span>Затраченное время:</span> <span>3 секунды</span></div>
+                <div class="stat-item"><span>Заменено символов:</span> <span>150 символов</span></div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 14 L 4 9 L 9 4"></path>
+                        <path d="M4 9 H 15 A 5 5 0 0 1 20 14"></path>
+                    </svg>
+                    Вернуть оригинал
+                </button>
+                
+                <button class="btn btn-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                        <path d="M16 8 V 6 C 16 4.89 15.1 4 14 4 H 6 C 4.89 4 4 4.89 4 6 V 14 C 4 15.1 4.89 16 6 16 H 8"></path>
+                        <path d="M12 12 H 16"></path>
+                        <path d="M12 16 H 16"></path>
+                    </svg>
+                    Копировать текст
+                </button>
+
+                <button class="btn btn-icon btn-secondary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5 V 14"></path>
+                        <path d="M8 10 L 12 14 L 16 10"></path>
+                        <path d="M4 17 V 18 C 4 19.1 4.9 20 6 20 H 18 C 19.1 20 20 19.1 20 18 V 17"></path>
+                    </svg>
+                    Скачать в PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Модальное окно с описанием уровней -->
+        <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-close" onclick="closeModal()">✕</div>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Плавающая кнопка помощи -->
+    <div class="help-button" onclick="toggleHelpTooltip()">
+        <svg viewBox="0 0 24 24">
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+    </div>
+
+    <!-- Вертикальное окно подсказки -->
+    <div class="help-tooltip" id="helpTooltip">
+        <div class="help-tooltip-item" onclick="showLevelDescription(1)">
+            <div class="help-tooltip-text">1 ур.</div>
+        </div>
+        <div class="help-tooltip-item" onclick="showLevelDescription(2)">
+            <div class="help-tooltip-text">2 ур.</div>
+        </div>
+        <div class="help-tooltip-item" onclick="showLevelDescription(3)">
+            <div class="help-tooltip-text">3 ур.</div>
+        </div>
+        <div class="help-tooltip-item">
+            <div class="help-tooltip-icon doc-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+            </div>
+        </div>
+        <div class="help-tooltip-item" onclick="toggleColorBox(this)">
+            <div class="help-tooltip-icon color-box" id="colorBox"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно с описанием уровней -->
+    <div class="help-levels-modal-overlay" id="helpLevelsModal" onclick="closeHelpLevelsModal(event)">
+        <div class="help-levels-modal" onclick="event.stopPropagation()">
+            <div class="help-levels-modal-close" onclick="closeHelpLevelsModal()">✕</div>
+            <div class="help-levels-modal-title">Описание уровней адаптации</div>
+            <div id="helpLevelsContent"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно адаптации -->
+    <div class="adapt-modal-overlay" id="adaptModal" onclick="closeAdaptModal(event)">
+        <div class="adapt-modal" onclick="event.stopPropagation()">
+            <button class="adapt-modal-close" onclick="closeAdaptModal()">✕</button>
+            <div class="adapt-modal-title">Адаптация текста</div>
+            <div class="adapt-modal-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
