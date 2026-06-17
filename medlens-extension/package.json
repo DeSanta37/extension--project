@@ -5,7 +5,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "tsx server/index.ts"
+    "server": "tsx server/index.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src server vite.config.ts",
+    "design:gallery": "node design/build-gallery.mjs",
+    "design:preview": "open design/medlens-all-blocks-figma.html"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +17,8 @@
   "type": "commonjs",
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.4.0",
+    "@types/chrome": "^0.1.43",
+    "@types/node": "^25.9.2",
     "@typescript-eslint/eslint-plugin": "^8.59.0",
     "@typescript-eslint/parser": "^8.59.0",
     "eslint": "^10.2.1",
@@ -26,7 +32,9 @@
     "@types/webextension-polyfill": "^0.12.5",
     "dotenv": "^17.4.2",
     "hono": "^4.12.14",
+    "html2canvas": "^1.4.1",
     "idb": "^8.0.3",
+    "jspdf": "^4.2.1",
     "openai": "^6.34.0",
     "webext-bridge": "^6.0.1",
     "webextension-polyfill": "^0.12.0",

@@ -3,9 +3,9 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 export default [
   {
-    files: ['src/**/*.ts', 'server/**/*.ts'],
+    files: ['src/**/*.ts', 'server/**/*.ts', 'vite.config.ts'],
     languageOptions: { parser: tsParser, ecmaVersion: 2022, sourceType: 'module' },
     plugins: { '@typescript-eslint': tsPlugin },
-    rules: { '@typescript-eslint/no-explicit-any': 'warn' }
-  }
+    rules: { '@typescript-eslint/no-explicit-any': 'warn' },
+  },
 ];

@@ -1,0 +1,320 @@
+#medlens-float-btn,
+#medlens-history-btn {
+  all: initial;
+  position: fixed;
+  z-index: 2147483646;
+  font-family: 'PT Mono', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #33272a;
+  background: #ffc6c7;
+  border: 2px solid #ff8ba7;
+  border-radius: 50px;
+  padding: 8px 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(51, 39, 42, 0.18);
+  display: none;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#medlens-float-btn:hover,
+#medlens-history-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(51, 39, 42, 0.22);
+  background: #ffb3b5;
+}
+
+#medlens-float-btn.visible,
+#medlens-history-btn.visible {
+  display: flex;
+}
+
+#medlens-float-btn svg,
+#medlens-history-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: #33272a;
+  fill: none;
+  stroke-width: 2;
+}
+
+#medlens-history-btn {
+  bottom: 24px;
+  right: 24px;
+}
+
+.medlens-btn {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'PT Mono', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #33272a;
+  background: #ffc6c7;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 10px 16px;
+  cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.medlens-btn:hover {
+  border-color: #33272a;
+  background: #ffb3b5;
+}
+
+#medlens-history-panel {
+  all: initial;
+  position: fixed;
+  bottom: 72px;
+  right: 24px;
+  z-index: 2147483646;
+  width: 340px;
+  max-height: 420px;
+  background: #fffffe;
+  border: 2px solid #ff8ba7;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(51, 39, 42, 0.2);
+  font-family: 'PT Mono', 'Courier New', monospace;
+  font-size: 11px;
+  color: #33272a;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#medlens-history-panel.visible {
+  display: flex;
+}
+
+.medlens-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #ffc6c7;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.medlens-history-close {
+  all: unset;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+.medlens-history-list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 10px;
+}
+
+.medlens-history-empty {
+  margin: 12px 8px;
+  color: #888;
+  font-size: 12px;
+}
+
+.medlens-history-item {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: rgba(255, 198, 199, 0.15);
+  border: 1px solid rgba(255, 139, 167, 0.3);
+}
+
+.medlens-history-item-preview {
+  font-size: 12px;
+  line-height: 1.45;
+  margin-bottom: 6px;
+  word-break: break-word;
+  cursor: pointer;
+}
+
+.medlens-history-item-preview:hover {
+  text-decoration: underline;
+}
+
+.medlens-history-item-meta {
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.medlens-history-restored {
+  color: #6b8e23;
+  font-weight: 600;
+}
+
+.medlens-history-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.medlens-history-restore-all {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  margin: 10px;
+  text-align: center;
+  font-family: 'PT Mono', 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #33272a;
+  background: #ffc6c7;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.medlens-history-restore-all:hover {
+  border-color: #33272a;
+}
+
+.medlens-adapted,
+[data-medlens-replaced] {
+  background-color: rgba(255, 198, 199, 0.22);
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.medlens-preserved-link {
+  color: #1a5fb4;
+  text-decoration: underline;
+}
+
+.medlens-block-toolbar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.medlens-adapted:hover .medlens-block-toolbar,
+[data-medlens-replaced]:hover .medlens-block-toolbar {
+  opacity: 1;
+}
+
+#medlens-preview-modal {
+  all: initial;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: 'PT Mono', 'Courier New', monospace;
+  color: #33272a;
+}
+
+#medlens-preview-modal.visible {
+  display: flex;
+}
+
+.medlens-preview-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(51, 39, 42, 0.45);
+}
+
+.medlens-preview-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(520px, calc(100vw - 32px));
+  max-height: min(70vh, 560px);
+  background: #faeee7;
+  border: 2px solid #ff8ba7;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 36px rgba(51, 39, 42, 0.25);
+}
+
+.medlens-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.medlens-preview-close {
+  all: unset;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.medlens-preview-meta {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.medlens-preview-meta a {
+  color: #1a5fb4;
+  text-decoration: underline;
+}
+
+.medlens-anchor {
+  display: contents;
+}
+
+.medlens-preview-hint {
+  font-size: 11px;
+  color: #666;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.medlens-preview-section {
+  margin-bottom: 10px;
+}
+
+.medlens-preview-label {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.medlens-preview-original,
+.medlens-preview-body {
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.medlens-preview-body {
+  margin-bottom: 0;
+}
+
+.medlens-preview-actions {
+  display: flex;
+  justify-content: flex-end;
+}
