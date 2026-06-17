@@ -34,9 +34,7 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
 
   try {
     await browser.action.openPopup();
-  } catch {
-    /* popup may fail without user gesture */
-  }
+  } catch {}
 });
 
 async function getActiveTabId(): Promise<number | undefined> {
@@ -329,7 +327,6 @@ async function handleAdaptText(payload: AdaptPayload, tabId?: number): Promise<A
   }
 }
 
-// Popup still uses webext-bridge
 onMessage('get-context', async () => {
   const stored = await browser.storage.session.get('pendingContext');
   return (stored.pendingContext as TextContext | undefined) ?? pendingContext;

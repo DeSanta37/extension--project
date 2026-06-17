@@ -16,7 +16,6 @@ export interface TextContext {
   text: string;
   scope: TextScope;
   charCount: number;
-  /** true when opened via floating button after text selection */
   fromSelection: boolean;
 }
 

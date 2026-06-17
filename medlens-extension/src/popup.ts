@@ -86,7 +86,6 @@ async function loadContext(): Promise<void> {
   const openIntent = stored.openIntent as string | undefined;
   const ctx = fromJson<TextContext | null>(await sendMessage('get-context', {}, 'background'));
 
-  // Экран 2 только при явном открытии через выделение (кнопка MedLens или ПКМ)
   if (openIntent === 'selection' && ctx?.text) {
     currentContext = ctx;
     updateCharCounter(ctx.charCount);

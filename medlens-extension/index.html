@@ -12,14 +12,12 @@
 <body>
 
     <div class="popup-container">
-        <!-- Навигация -->
         <div class="nav-tabs">
             <div class="nav-item active" data-screen="1">01 <span class="tab-label">Текст</span></div>
             <div class="nav-item" data-screen="2">02 <span class="tab-label">Уровень</span></div>
             <div class="nav-item" data-screen="3">03 <span class="tab-label">Результат</span></div>
         </div>
 
-        <!-- Экран 01: Главная -->
         <div id="screen-1" class="screen active">
             <div class="logo-section">
                 <img src="MedLens.svg" alt="MedLens Logo" class="logo-img">
@@ -35,7 +33,6 @@
             <button class="btn" id="btn-start-adapt">Начать адаптацию</button>
         </div>
 
-        <!-- Экран 02: Выбор уровня -->
         <div id="screen-2" class="screen">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px;">
                 <h2 style="margin: 0;">Выберите глубину адаптации:</h2>
@@ -85,13 +82,11 @@
             <button class="btn" id="btn-run-adapt" style="margin-top: auto;">Адаптировать текст</button>
         </div>
 
-        <!-- Экран загрузки -->
         <div id="screen-loading" class="screen loading-screen">
             <div class="loading-text">Идет адаптация текста...</div>
             <div class="loading-sub">Обычно это занимает 3-15 секунд</div>
         </div>
 
-        <!-- Экран результата -->
         <div id="screen-3" class="screen">
             <div class="success-icon">✓</div>
             <div class="result-title">Текст успешно адаптирован</div>
@@ -139,7 +134,6 @@
             </div>
         </div>
 
-        <!-- Просмотр сохранённой адаптации -->
         <div class="adapt-view-overlay" id="adapt-view-overlay">
             <div class="adapt-view-modal">
                 <button class="adapt-view-close" id="adapt-view-close" type="button">✕</button>
@@ -158,7 +152,6 @@
             </div>
         </div>
 
-        <!-- Экран ошибки -->
         <div id="screen-error" class="screen">
             <div class="error-icon">✕</div>
             <div class="result-title">Ошибка адаптации</div>
@@ -166,7 +159,6 @@
             <button class="btn" id="btn-retry" style="margin-top: auto;">Попробовать снова</button>
         </div>
 
-        <!-- Модальное окно с описанием уровней -->
         <div id="modal-overlay" class="modal-overlay">
             <div class="modal-content">
                 <div class="modal-close" id="modal-close">✕</div>
@@ -174,7 +166,6 @@
             </div>
         </div>
 
-        <!-- Модальное окно адаптации -->
         <div class="adapt-modal-overlay" id="adaptModal">
             <div class="adapt-modal">
                 <button class="adapt-modal-close" id="adapt-modal-close">✕</button>
