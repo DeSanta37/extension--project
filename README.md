@@ -3,6 +3,9 @@
 <br>
 <br>
 
+**Яндекс диск:** https://disk.yandex.ru/d/rIKARdYdaFgDPg
+<br>
+
 ## MedLens: Описание продукта
 
 ### Суть концепта
